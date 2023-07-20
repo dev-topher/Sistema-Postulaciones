@@ -1,0 +1,13 @@
+<body>
+
+    <%= render "shared/navbar_form" %>
+
+    <% if @is_able_to_apply == true %>
+        <%= render "apply/verify/correct" %>    
+    <% else %>
+        <%= render "apply/verify/error" %>    
+    <% end %>
+
+    <%= render "shared/footer" %>
+    
+</body>

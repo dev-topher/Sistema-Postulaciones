@@ -1,0 +1,44 @@
+<div class="row py-5">
+    <div class="col-md-12 info_box">
+        <div class="table-responsive">
+            <table class="table caption-top table-striped table-hover table-borderedless border-dark">
+                <caption>Convocatorias existentes:</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Convocatoria</th>
+                        <th scope="col">Inicio</th>
+                        <th scope="col">Termino</th>
+                        <th scope="col">Postulantes</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Opciones</th>
+                        <th scope="col">Vista</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @announcements.each do |announcement| %>
+                        <tr scope='row'>
+                            <th><%= announcement.id %></th>
+                            <td><%= announcement.name %></td>
+                            <td><%= announcement.f_inicio %></td>
+                            <td><%= announcement.f_fin %></td>
+                            <td>total postulaciones de la convocatoria</td>
+                            <td><%= announcement.status %></td> 
+                            <% if announcement.status != "Activo" %>
+                                <td> 
+                                    <button type="button" class="btn btn-warning btn-circle" data-bs-toggle="modal" data-bs-target="#convocatoriaModal" data-bs-id="<%= announcement.id %>" 
+                                    data-bs-nombre="<%= announcement.name %>" data-bs-inicio="<%= announcement.f_inicio %>" data-bs-fin="<%= announcement.f_fin %>" 
+                                    data-bs-estado="<%= announcement.status %>" data-bs-minSCT="<%= announcement.min_creditos_sct %>" data-bs-maxSCT="<%= announcement.max_creditos_sct %>" 
+                                    data-bs-reprobado="<%= announcement.ramos_reprobados %>"><i class="fa-solid fa-pen-to-square"></i> Modificar</button>
+                                </td>
+                            <% else %>
+                                <td class="text-danger">Ha concluido</td>
+                            <% end %>
+                            <td><a href="#" class="btn btn-primary">Detalle?</a></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

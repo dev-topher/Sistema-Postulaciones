@@ -1,0 +1,46 @@
+<div class="row py-5">
+    <div class="col-md-12 info_box">
+        <table class="table caption-top table-striped table-hover table-borderedless border-dark">
+            <caption>Preguntas adicionales existentes:</caption>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Simple o múltiple</th>
+                    <th scope="col">Tipo de pregunta</th>
+                    <th scope="col">Opciones</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($preguntas as $pregunta): ?>
+                    <tr>
+                        <td><?=$pregunta['ID_PREGUNTA']?></td>
+                        <td><?=$pregunta['TITULO']?></td>
+                        <td><?=$pregunta['TIPO']?></td>
+                        <td><?=$pregunta['TIPO_INPUT']?></td>
+                        <td>
+                        <?php if ($pregunta['TIPO']=="Simple"): ?>
+                            No posee opciones.
+                        </td>
+                        <td>
+                        <button type="button" class="btn btn-warning btn-circle" data-bs-toggle="modal" data-bs-target="#preguntaModal" 
+                        data-bs-id="<?=$pregunta['ID_PREGUNTA']?>" data-bs-titulo="<?=$pregunta['TITULO']?>"><i class="fa-solid fa-pen-to-square"></i> Modificar</button>
+                        <?php endif; ?>
+                        <?php if($pregunta['TIPO']=="Múltiple") : ?>
+                            <?php for ($i=1; $i < $pregunta['contador_opciones'] ; $i++) : ?>
+                                <?=$pregunta['opcion_'.$i]?><?php if ($i!=($pregunta['contador_opciones']-1)) : ?>, <?php endif; ?>
+                            <?php endfor; ?>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-circle" data-bs-toggle="modal" data-bs-target="#preguntaMultipleModal" 
+                            data-bs-id="<?=$pregunta['ID_PREGUNTA']?>" data-bs-titulo="<?=$pregunta['TITULO']?>" data-bs-tipo="<?=$pregunta['TIPO']?>" > 
+                            <i class="fa-solid fa-pen-to-square"></i> Modificar </button>
+                        <?php endif; ?>
+                       </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>

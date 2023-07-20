@@ -1,0 +1,75 @@
+<body>
+
+    <%= render "shared/navbar_form" %>
+
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-12">
+                <h2 class="text-center">Historial de Postulaciones</h2>
+            </div>
+        </div>
+        <div class="row py-5">
+            
+            <%if @has_applies == false %>
+                <div class="col-12" style="padding-top:150px; padding-bottom:150px;">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <span class="h4"><i class="fa-solid fa-triangle-exclamation"></i> Usted no posee ningún registro de postulación previo.</span>
+                    </div>
+                </div>
+            <% else %>
+
+                <% if @has_modifiable_applications == true %>
+
+                <div class="col-12">
+                    <div class="alert alert-warning text-center" role="alert">
+                        <span class="h4"><i class="fa-solid fa-triangle-exclamation"></i> La postulación # ha sido marcada para modificar.</span>
+                        <br>
+                        <span>Realice las modificaciones pertinentes y reenvíe el formulario para su evaluación correcta.</span>
+                    </div>
+                </div>
+
+                <% end %>
+
+                <div class="col-md-12">
+                    <div class="table table-responsive table-hover">
+                        <table id="historial" class="table caption-top table-striped table-hover table-borderedless border-dark">
+                            <caption class="text-center h4 my-5">Lista de postulaciones</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Convocatoria</th>
+                                    <th scope="col">Programa</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Universidad</th>
+                                    <th scope="col">Detalle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                        
+                                <tr>
+                                    <th>#<% %></th>
+                                    <th>#<% %></th>
+                                    <th>#<% %></th>
+                                    <th>#<% %></th>
+                                    <th>#<% %></th>
+                                    <th>#<% %></th>
+
+                                    <td>
+                                        <a href='<?= base_url();?>/estudiante/historial/>' class='btn btn-primary btn-circle' target="_blank" role='button'>Ver más</a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            <% end %>
+        
+        </div>
+    </div>
+
+    <%= render "shared/footer" %>
+
+</body>

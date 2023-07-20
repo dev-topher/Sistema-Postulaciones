@@ -1,0 +1,70 @@
+<body>
+    
+    <%= render "shared/navbar_admin" %>
+
+    <div class="container">
+
+        <!-- row de alertas -->
+       
+        <div class="row py-5">
+            <h2 class="text-center">Programas</h2>
+        </div>
+
+        <% if @has_data == false %>
+
+            <div class="row" style="margin-top:200px; margin-bottom:200px;">
+                <div class="alert alert-danger" role="alert">
+                    <p class="text-center">No existen programas creados.</p>
+                </div>
+            </div>
+
+        <% else %>
+
+            <div class="row py-5">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data 1</h5>
+                            <p class="card-text">Lorem example o ejemplo de lorem es un texto generado aleatoriamente para probar cómo se vería un párrafo de texto.</p>
+                        </div>
+                        <div class="card-footer">
+                            Footer dummy
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data 1</h5>
+                            <p class="card-text">Lorem example o ejemplo de lorem es un texto generado aleatoriamente para probar cómo se vería un párrafo de texto.</p>
+                        </div>
+                        <div class="card-footer">
+                            Footer dummy
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%= render "program/extra/table", locals: {programs: @programs, pagy: @pagy} %>
+
+        <% end %>
+            
+
+    </div>
+
+    <% if @has_data == true %>
+        <%= render "program/extra/modal_edit_program" %>
+    <% end %>
+
+
+    <%= render "program/extra/modal_new_program" %>
+
+
+
+    
+        
+
+
+
+
+</body>

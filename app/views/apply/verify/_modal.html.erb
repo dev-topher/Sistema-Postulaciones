@@ -1,0 +1,87 @@
+<div class="modal fade" id="postulacion" tabindex="-1" aria-labelledby="postulacionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form class="needs-validation" action="<?= base_url() ?>/estudiante/historial/modificar" method="post" accept-charset="utf-8" id="modificar_postulacion_estudiante" novalidate>
+                <input type="hidden" name="_method" value="PUT"/>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="postulacionModalLabel">Modificar postulación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="d-grid gap-2">
+                            <input class="form-control" id="id_postulacion" readonly="true" type="hidden" name="id_postulacion" value='<?= $postulacion['ID_POSTULACION']; ?>'>
+                            <h4 class="text-center">Información personal y de estadía</h4>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="nacionalidad">Nacionalidad</span></label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" name="nacionalidad" size="30" value='<?= $postulacion['NACIONALIDAD']; ?>' required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="telefono">Telefono móvil</label>
+                                <div clasS="col-md-8">
+                                    <input class="form-control" type="number" name="telefono" size="9" min="10000000" value='<?= $postulacion['N_TELEFONO']; ?>' required>
+                                </div>
+                            </div>
+                    
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="email_personal">Email personal</label>
+                                <div clasS="col-md-8">
+                                    <input class="form-control" type="email" name="email_personal" size="30" value='<?= $postulacion['EMAIL_PERSONAL']; ?>' required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="nivel_ingles">Nivel de Inglés</label>
+                                <div clasS="col-md-8">
+                                    <input class="form-control" type="text" name="nivel_ingles" size="30" value='<?= $postulacion['NIVEL_INGLES']; ?>' required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="idioma_sec">Segundo idioma</label>
+                                <div clasS="col-md-8">
+                                    <input class="form-control" type="text" name="idioma_sec" size="30" value='<?= $postulacion['IDIOMA_2']; ?>' required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="1ra_opcion">Universidad de Preferencia 1</label>
+                                <div clasS="col-md-8">
+                                    <select class="form-select" name="1ra_opcion" required>
+                                        <?php foreach($universidades as $universidad){
+                                            echo "<option value='".$universidad['ID_UNIVERSIDAD']."'>".$universidad['NOMBRE']." | ".$universidad['ID_PAIS']."</option>";
+                                        }?>    
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="2da_opcion">Universidad de Preferencia 2</label>
+                                <div clasS="col-md-8">
+                                <select class="form-select" name="2da_opcion" required>
+                                        <?php foreach($universidades as $universidad){
+                                            echo "<option value='".$universidad['ID_UNIVERSIDAD']."'>".$universidad['NOMBRE']." | ".$universidad['ID_PAIS']."</option>";
+                                        }?>    
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="3ra_opcion">Universidad de Preferencia 3</label>
+                                <div clasS="col-md-8">
+                                    <select class="form-select" name="3ra_opcion"  required>
+                                        <?php foreach($universidades as $universidad){
+                                            echo "<option value='".$universidad['ID_UNIVERSIDAD']."'>".$universidad['NOMBRE']." | ".$universidad['ID_PAIS']."</option>";
+                                        }?>    
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> Cerrar</button>
+                    <button class="btn btn-success" type="submit" id="boton_modificar"><i class="fa-solid fa-floppy-disk"></i> Modificar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row py-3">
+        <h2 class="text-center">Bienvenido/a: <%= @user.name %></h2>
+    </div>
+    <div class="row py-3">
+        <span class="text-center">Felicidades, usted se encuentra habilitado para realizar la postulación al programa de intercambios de universidades.</span>
+        <span class="text-center">Verificar si la información suya es correcta, en caso contrario, favor de contactar a soporte@sistema-intercambios.cl</span>
+    </div>
+</div>
+        
+<div class="container">
+    <div class="row py-5">
+        <h4 class="text-center">Información Académica del Estudiante</h4>
+    </div>
+    <div class="d-grid gap-2">
+        <div class="row">
+            <label class="col-md-4 control-label" for="nombre">Nombre Estudiante</label> 
+            <div clasS="col-md-8">
+                <input class="form-control proh" type="text" name="nombre_estudiante" size="40" readonly="true" value="<%= @user.name %>">
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-4 control-label" for="RUT">RUT Estudiante</label>
+            <div clasS="col-md-8">
+                <input class="form-control proh" type="text" name="RUT" readonly="true" value="<%= @user.rut %>">
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-4 control-label" for="nombre">Fecha de Nacimiento</label>
+            <div clasS="col-md-8">
+                <input class="form-control proh" type="text" name="nacimiento" readonly="true" value="<%= @user.d_born %>">
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-4 control-label" for="nombre">N° de matrícula</label>
+            <div clasS="col-md-8">
+                <input class="form-control proh" type="number" name="matricula" size="10" readonly="true" value="<%= @user.enrollment %>">
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-4 control-label" for="nombre">Email Institucional</label>
+            <div clasS="col-md-8">
+                <input class="form-control proh" type="email" name="email_institucional" size="30" readonly="true" value="<%= @user.email %>">
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-4 control-label" for="nombre">Carrera</label>
+            <div clasS="col-md-8">
+                <input class="form-control proh" type="carrera" name="carrera" size="10" readonly="true" value="<%= @user.career.name %>">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row gy-2">
+        <div class="col-12">
+            <a class="btn btn-primary w-100" href="#" role="button"><i class="fa-solid fa-circle-check"></i> Acceder al formulario</a>
+        </div>
+    </div>
+</div>

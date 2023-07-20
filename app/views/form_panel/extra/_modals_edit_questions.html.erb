@@ -1,0 +1,95 @@
+<div class="modal fade" id="preguntaMultipleModal" tabindex="-1" aria-labelledby="preguntaMultipleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="preguntaMultipleModalLabel">Modificar Pregunta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="needs-validation" action="<?= base_url() ?>/admin/formulario/multiple" method="post" accept-charset="utf-8" id="form_modificar_pregunta"novalidate>
+                <input type="hidden" name="_method" value="PUT"/>
+                <div class="modal-body">
+                    <div class="d-grid gap-2">
+                        <h4 class="text-center">Parámetros</h4>
+                        <input class="form-control rest proh" id="id_pregunta" readonly="true" type="hidden" name="id_pregunta_m">
+                        <div class="row"> 
+                            <label class="col-md-4 control-label" for="tipo_multiple">Tipo</label>
+                            <div class="col-md-8">
+                                <select class="form-select" name="tipo_multiple" required>
+                                    <option value='Checkbox'>Checkbox</option>
+                                    <option value='Radio'>Radio</option>
+                                    <option value='Dropdown'>Dropdown</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="titulo_pregunta">Titulo o etiqueta</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="titulo_pregunta_m" size="50" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="nuevo_label_m" class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Opcion 1..." name="m_nuevo_1" id="m_nuevo_1" style="margin-top:5px; margin-bottom:5px;" required>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top:10px;">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-success w-100" onclick="añadir_m()"><i class="fa-solid fa-circle-plus"></i> Añadir nuevo campo</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-danger w-100" onclick="remover_m()"><i class="fa-solid fa-circle-minus"></i> Remover campo</button>
+                            </div>
+                            <input type="hidden" value="1" id="total_campo_m" name="total_campo_m">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> Cerrar</button>
+                    <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk" id="boton_modificar_pregunta"></i> Modificar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+ 
+<div class="modal fade" id="preguntaModal" tabindex="-1" aria-labelledby="preguntaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="preguntaModalLabel">Modificar Pregunta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="needs-validation" action="<?= base_url() ?>/admin/formulario/modificar/" method="post" accept-charset="utf-8" id="form_modificar_pregunta" novalidate>
+                <input type="hidden" name="_method" value="PUT"/>
+                <div class="modal-body">
+                    <div class="d-grid gap-2">
+                        <h4 class="text-center">Parámetros</h4>
+                        <input class="form-control rest proh" id="id_pregunta" readonly="true" type="hidden" name="id_pregunta">
+                    
+                        <div class="row"> 
+                            <label class="col-md-4 control-label" for="tipo_simple">Tipo</label>
+                            <div class="col-md-8">
+                                <select class="form-select" name="tipo_simple" required>
+                                    <option value='Texto'>Texto</option>
+                                    <option value='Numero'>Numero</option>
+                                    <option value='Fecha'>Fecha</option>
+                                    <option value='Email'>Email</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="titulo_pregunta">Titulo o etiqueta</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="titulo_pregunta" size="50" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> Cerrar</button>
+                    <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk" id="boton_modificar_pregunta"></i> Modificar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

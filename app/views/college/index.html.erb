@@ -1,0 +1,118 @@
+<body>
+    <%= render "shared/navbar_admin" %>
+        
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-12">
+                <h2 class="text-center">Universidades asociadas</h2>
+            </div>
+        </div>
+
+        
+        <% if @empty_colleges == false %>
+
+
+            <div class="row" style="margin-top:200px; margin-bottom:200px;">
+                <div class="alert alert-danger" role="alert">
+                    No existen Universidades asociadas.
+                </div>
+            </div>
+
+        <% else %>
+
+            <div class="row py-5">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data 1</h5>
+                            <p class="card-text">Lorem example o ejemplo de lorem es un texto generado aleatoriamente para probar cómo se vería un párrafo de texto.</p>
+                        </div>
+                        <div class="card-footer">
+                            Footer dummy
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Data 1</h5>
+                            <p class="card-text">Lorem example o ejemplo de lorem es un texto generado aleatoriamente para probar cómo se vería un párrafo de texto.</p>
+                        </div>
+                        <div class="card-footer">
+                            Footer dummy
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%= render "college/extra/table", locals: {colleges: @colleges, pagy: @pagy} %>
+        
+        <% end %>
+
+    </div>
+
+
+
+    
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-success btn-circle w-100" data-bs-toggle="modal" data-bs-target="#crearUniversidadModal"><i class="fa-solid fa-address-book"></i> Añadir nueva universidad asociada</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="crearUniversidadModal" tabindex="-1" aria-labelledby="crearUniversidadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="crearUniversidadModalLabel">Añadir Universidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form class="needs-validation" action="<?= base_url() ?>/admin/universidades/crear" method="post" id="form_crear_universidad" accept-charset="utf-8" novalidate> 
+                    <div class="modal-body">
+                        <div class="container">
+                            <h4 class="text-center">Parámetros</h4>
+                            <div class="d-grid gap-2"> 
+                                
+                                <div class="row">
+                                    <label class="col-md-4 control-label" for="nombre_universidad">Nombre Universidad</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" name="nombre_universidad" placeholder="Universidad de Talca" required>
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    <label class="col-md-4 control-label" for="pais">Pais perteneciente</label>
+                                    <div class="col-md-8">
+                                        <%= select_tag 'country', options_from_collection_for_select(@countries, 'id', 'name'), class: 'form-select' %>
+                                    </div>
+                                </div> 
+                                <br>
+
+                                <h4 class="text-center">Programas asociados</h4>
+                                
+                                <br>
+                                <div class="row row-cols-4 gy-4">
+                                    <% @programs.each do |program| %>
+                                        <div class="form-check">
+                                         <%= check_box_tag 'programa[]', program.id, false, id: program.name, class: 'form-check-input' %>
+                                         <%= label_tag program.name, program.name, class: 'form-check-label' %>
+                                        </div>
+                                    <% end %>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> Cerrar</button>
+                        <button type="submit" class="btn btn-primary" id="boton_crear_universidad"><i class="fa-solid fa-floppy-disk"></i> Crear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>

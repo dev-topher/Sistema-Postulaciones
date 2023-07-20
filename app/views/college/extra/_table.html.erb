@@ -1,0 +1,33 @@
+<div class="row py-5">
+    <div class="col-md-12 info_box">
+        <div class="table-responsive">
+            <table class="table caption-top table-striped table-hover table-borderedless border-dark">
+                <caption>Universidades en el plan:</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">N°</th>
+                        <th scope="col">Universidad</th>
+                        <th scope="col">País</th>
+                        <th scope="col">Programas pertenecientes</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @colleges.each do |college| %>
+                        <tr scope='row'>
+                            <th>#<%= college.id %></th>
+                            <td><%= college.name %></td>
+                            <td><%= college.country.name %></td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-circle" data-bs-toggle="modal" data-bs-target="#universidadModal" data-bs-id="<%= college.id %>"
+                                data-bs-nombre="<%= college.name %>"><i class="fa-solid fa-pen-to-square"></i> Modificar</button>
+                            </td>
+                        </tr> 
+                    <% end %>
+                </tbody>
+            </table>
+            <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+        </div>
+    </div>
+</div>

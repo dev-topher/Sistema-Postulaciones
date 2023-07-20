@@ -1,0 +1,52 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <button type="button" class="btn btn-success btn-circle w-100" data-bs-toggle="modal" data-bs-target="#crearProgramaModal"><i class="fa-solid fa-address-book"></i> Añadir programa</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+
+<div class="modal fade" id="crearProgramaModal" tabindex="-1" aria-labelledby="crearProgramaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearProgramaModalLabel">Crear Programa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="needs-validation" action="<?= base_url() ?>/admin/programas/crear" method="post" accept-charset="utf-8" id="form_crear_programa" novalidate>
+            <div class="modal-body">
+                <div class="container">
+                    <h4 class="text-center">Parámetros</h4>
+                    <div class="d-grid gap-2">
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="nombre_programa">Nombre del programa</label>
+                            <div clasS="col-md-8">
+                                <input type="text" class="form-control" id="nombre_programa" name="nombre_programa" placeholder="Beca Juan Abate Molina" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="descripcion_programa">Descripción</label>
+                            <div clasS="col-md-8">
+                                <input type="text" class="form-control" id="descripcion_programa" name="descripcion_programa" placeholder="Información asociada al programa" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="estado_programa">Estado</label>
+                            <div clasS="col-md-8">
+                                <input type="text" class="form-control" id="estado_programa" name="estado_programa" readonly="true" value="Activo">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> Cerrar</button>
+                <button type="submit" class="btn btn-primary" id="boton_crear_programa"><i class="fa-solid fa-floppy-disk"></i> Crear</button>
+            </div>
+        </div>
+    </div>
+</div>

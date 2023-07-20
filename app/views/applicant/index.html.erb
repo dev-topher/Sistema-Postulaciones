@@ -1,0 +1,93 @@
+<body>
+
+    <%= render "shared/navbar_admin" %>
+
+
+    <div class="container">
+
+        <div class="row py-5">
+            <div class="col-12">
+                <h2 class="text-center">Ver tickets de postulantes</h2>
+            </div>
+        </div>
+
+        <div class="row py-5">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Data 1</h5>
+                        <p class="card-text">Lorem example o ejemplo de lorem es un texto generado aleatoriamente para probar cómo se vería un párrafo de texto.</p>
+                    </div>
+                    <div class="card-footer">
+                        Footer dummy
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Data 1</h5>
+                        <p class="card-text">Lorem example o ejemplo de lorem es un texto generado aleatoriamente para probar cómo se vería un párrafo de texto.</p>
+                    </div>
+                    <div class="card-footer">
+                        Footer dummy
+                    </div>
+                </div>
+            </div>
+        </div>
+                                
+        <div class="row py-5">
+            <label class="col-md-4" for="periodo_postulacion">Periodo de postulación:</label>
+            <div class="col-md-8">
+                <select id="periodo_convocatoria" class="table-filter form-control" onchange="val()"> <!-- onchange="filter_rows()" -->
+                    <option value="all">Todas las convocatorias</option>
+                    <?php foreach($convocatorias as $conv): ?>
+                       <option value='<?=$conv['ID_CONVOCATORIA']?>'>Convocatoria: <?=$conv['ID_CONVOCATORIA']?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+            
+        
+        <%= render "applicant/extras/table", locals: {applies: @applies, pagy: @pagy} %>
+
+
+        <div class="row py-5 gy-2">
+            <div class="col-6">
+                <button id="btn_notificar" type="button" class="btn btn-primary btn-circle w-100" 
+                data-bs-toggle="modal" data-bs-target="#notificacionModal"><i class="fa-solid fa-share"></i> <i class="fa-regular fa-envelope"></i> Notificar estudiantes</button>
+                
+            </div>
+            <div class="col-6">
+                <a id="boton_exportar" class="btn btn-primary btn-circle w-100" role="button"><i class="fa-regular fa-file-excel"></i> Descargar planilla Excel</a>
+            </div>
+        </div>
+            
+            <div class="modal fade" id="notificacionModal" tabindex="-1" aria-labelledby="notificacionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notificacionModalLabel">Notificar estudiantes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="needs-validation" action="<?= base_url()?>/admin/movilidad/notificar" method="post" accept-charset="utf-8">
+                <input type="hidden" name="_method" value="PUT"/>
+                <div class="modal-body">
+                    <input class="form-control rest proh" id="id_notif" readonly="true" type="hidden" name="id_notif">
+                    ¿Está seguro/a de realizar la notificación de la convocatoria?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-info"><i class="fa-solid fa-share"></i> <i class="fa-regular fa-envelope"></i> Notificar estudiantes</button>
+                </div>
+                </form>
+                </div>
+            </div>
+            </div>
+
+            
+        </div>
+
+
+
+</body>

@@ -1,0 +1,83 @@
+<div class="modal fade" id="convocatoriaModal" tabindex="-1" aria-labelledby="convocatoriaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="convocatoriaModalLabel">Modificar Convocatoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="needs-validation" action="<?= base_url() ?>/admin/convocatoria/modificar" method="post" accept-charset="utf-8" id="form_modificar_convocatoria" novalidate>
+                    <input type="hidden" name="_method" value="PUT"/>
+                    <div class="modal-body">  
+                        <center><h4>Parámetros</h4></center>
+                        <div class="d-grid gap-2">
+                            <input class="form-control rest proh" id="id_conv" readonly="true" type="hidden" name="id_conv">
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="nombre_convocatoria">Nombre Convocatoria</label>
+                                <div clasS="col-md-8">
+                                    <input class="form-control" type="text" name="nombre_convocatoria" required>
+                                </div>
+                            </div>
+                            <div class="row"> 
+                                <label class="col-md-4 control-label" for="tipo_convocatoria">Tipo de movilidad</label>
+                                <div class="col-md-8">
+                                    <select class="form-select" name="tipo_convocatoria" required>
+                                        <?php foreach($programas as $prog):?>
+                                        <option value='<?=$prog['ID_PROGRAMA'];?>'><?=$prog['NOMBRE'];?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="f_inicio">Fecha de inicio</label>
+                                <div class="col-md-8">
+                                    <input type="date" class="form-control" id="f_inicio" name="f_inicio" min="2021-01-01">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="f_fin">Fecha de término</label>
+                                <div class="col-md-8">
+                                    <input type="date" class="form-control" id="f_fin" name="f_fin" min="2021-01-02" required>
+                                </div>
+                            </div>
+                            <div class="row"> 
+                                <label class="col-md-4 control-label" for="estado_convocatoria">Estado de la convocatoria</label>
+                                <div class="col-md-8">
+                                    <select class="form-select" name="estado_convocatoria" required>
+                                        <option value='Activa'>Activa</option>
+                                        <option value='En pausa'>En pausa</option>
+                                        <option value='Cerrada'>Finalizada</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="ramos_reprobados">Ramos reprobados máximos</label>
+                                <div clasS="col-md-8">
+                                    <input class="form-control rest2" type="number" id="reprobado" name="ramos_reprobados" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="min_sct_creditos">Mínimo de créditos SCT</label>
+                                <div clasS="col-md-8">
+                                    <input class="form-control rest2" type="number" id="min_sct_creditos" name="min_sct_creditos" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4 control-label" for="max_sct_creditos">Máximo de créditos SCT (ingrese el valor porcentual %)</label>
+                                <div clasS="col-md-8">
+                                    <input class="form-control rest3" type="number" id="max_sct_creditos" name="max_sct_creditos" max="100" required>
+                                    <div class="invalid-feedback">
+                                        <span style="color:white">Valor máximo de 100 %.</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> Cerrar</button>
+                        <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk" id="form_modificar_boton"></i> Modificar</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>  

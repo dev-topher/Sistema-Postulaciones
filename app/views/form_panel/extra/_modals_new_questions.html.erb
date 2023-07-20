@@ -1,0 +1,105 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-success btn-circle w-100" data-bs-toggle="modal" data-bs-target="#crearPreguntaInputModal"><i class="fa-solid fa-address-book"></i> Añadir nueva pregunta de Input</button>
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-success btn-circle w-100" data-bs-toggle="modal" data-bs-target="#crearPreguntaMultipleModal"><i class="fa-solid fa-address-book"></i> Añadir nueva pregunta múltiple</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="crearPreguntaInputModal" tabindex="-1" aria-labelledby="crearPreguntaInputModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearPreguntaInputModalLabel">Nueva pregunta de Input</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="needs-validation" action="#" method="post" accept-charset="utf-8" id="form_crear_pregunta" novalidate>
+                <div class="modal-body">
+                    <div class="d-grid gap-2">
+                        <h4 class="text-center">Parámetros</h4>
+                        <div class="row"> 
+                            <label class="col-md-4 control-label" for="tipo_pregunta">Tipo de pregunta</label>
+                            <div class="col-md-8">
+                                <select class="form-select" name="tipo_pregunta" required>
+                                    <option value='Texto'>Texto</option>
+                                    <option value='Numero'>Numero</option>
+                                    <option value='Fecha'>Fecha</option>
+                                    <option value='Email'>Email</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="titulo_pregunta">Nombre o etiqueta de la pregunta</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="titulo_pregunta" size="50" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="boton_crear_pregunta"><i class="fa-solid fa-floppy-disk"></i> Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal preguntas multiples -->
+<div class="modal fade" id="crearPreguntaMultipleModal" tabindex="-1" aria-labelledby="crearPreguntaMultipleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearPreguntaMultipleModalLabel">Crear pregunta múltiple</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="needs-validation" action="#" method="post" accept-charset="utf-8" id="form_crear_pregunta" novalidate>
+                <div class="modal-body">
+                    <div class="contanier">
+                        <div class="row">
+                            <label for="" class="col-md-4">Tipo de pregunta</label>
+                            <div class="col-md-8">
+                                <select class="form-control" name="tipo_pregunta">
+                                    <option value='Checkbox'>Checkbox</option>
+                                    <option value='Radio'>Radio</option>
+                                    <option value='Dropdown'>Dropdown</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label for="" class="col-md-4">Etiqueta principal</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="etiqueta" required>
+                            </div>
+                        </div>
+                        <br> 
+                        <p class="text-center">Campos de selección</p>
+                        <br>
+                        <div class="row">
+                            <div id="nuevo_label" class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Opcion 1..." name="nuevo_1" id="nuevo_1" style="margin-top:5px; margin-bottom:5px;" required>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top:10px;">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-success w-100" onclick="añadir()"><i class="fa-solid fa-circle-plus"></i> Añadir nuevo campo</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-danger w-100" onclick="remover()"><i class="fa-solid fa-circle-minus"></i> Remover campo</button>
+                            </div>
+                            <input type="hidden" value="1" id="total_campo" name="total_campo">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="boton_crear_pregunta_m"><i class="fa-solid fa-floppy-disk"></i> Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

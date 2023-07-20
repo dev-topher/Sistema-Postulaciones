@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <h1 class="site_title" id="site_title" style="color:white;">SP - MVP</h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= formulario_path %>">Formulario</a>
+          </li>
+        <% end %>
+
+        <% if admin_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= dashboard_path %>">Dashboard</a>
+          </li>
+        <% end %>
+
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if user_signed_in? || admin_signed_in?  %>
+              Bienvenido/a
+            <% else %>
+              <i class="fa-solid fa-user"></i> Inicia sesión
+            <% end %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <% if user_signed_in? %>
+              <li><%= button_to 'Cerrar sesión', destroy_user_session_path, class: 'dropdown-item', method: :delete %></li>
+            <% elsif admin_signed_in? %>
+              <li><%= button_to 'Cerrar sesión', destroy_admin_session_path, class: 'dropdown-item', method: :delete %></li>
+            <% else %>
+              <li><%= link_to raw('<i class="fa-solid fa-user"></i> Iniciar sesión como usuario'), new_user_session_path, class: 'dropdown-item' %></li>
+              <li><hr class="dropdown-divider" style="border-top: 1px solid #fff;"></li>
+              <li><%= link_to raw('<i class="fa-solid fa-user"></i> Iniciar sesión como administrador'), new_admin_session_path, class: 'dropdown-item' %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>

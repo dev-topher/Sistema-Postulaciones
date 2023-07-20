@@ -1,0 +1,41 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+db_development: s_postulacion_development
+db_production: s_postulacion_production
+db_test: s_postulacion_tests
+
+db_usuario: topher
+db_pw: topher.qzl
+
+mail_user: lobgonlydarkness@gmail.com
+mail_pw: darktoper98
+
+s3_user: inforcap
+s3_pw: admin1234_
+
+access_key_id: AKIA4Q5LZHDFBAJPUGGA
+secret_access_key: 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
+region_amazon: us-east-2
+bucket: railsprueba

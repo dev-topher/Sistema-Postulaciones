@@ -1,0 +1,208 @@
+<body>
+        
+    <%= render "shared/navbar_form" %>
+
+
+    <div class="container">
+
+        <div class="row py-5">
+            <div class="col-12">
+                <h2 class="text-center">Postulación #</h2>
+            </div>
+        </div>
+
+        <% if @is_able_to_modify == true %>
+            <%= render "apply/verify/button_modal" %>    
+        <% end %>
+
+        <div class="row py-5">
+            <div class="col">
+                <h4 class="text-center">Estado</h4>
+            </div>
+        </div>
+
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Identificador de la postulación</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="number" name="email_institucional" size="30" readonly="true" value=''>
+            </div>
+        </div>
+
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Estado de la postulación</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="text" name="email_institucional" size="30" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Universidad seleccionada</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="text" name="idioma_sec" size="30" readonly="true" value=''>
+            </div>
+        </div>
+
+        <div class="row py-5">
+            <div class="col">
+                <h4 class="text-center">Información del Postulante</h4>
+            </div>
+        </div>
+
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Nombre Postulante</label> 
+            <div class="col-md-8">
+                <input class="form-control" type="text" name="nombre_estudiante" size="40" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="RUT">RUT Estudiante</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="number" name="RUT" size="15" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Fecha de Nacimiento</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="text" name="nacimiento" size="15" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">N° de matrícula</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="number" name="matricula" size="10" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Email Institucional</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="email" name="email_institucional" size="30" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Carrera</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="text" name="carrera" size="10" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Programa de Movilidad</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="text" name="programa" size="25" readonly="true" value=''>
+            </div>
+        </div>
+
+
+
+        <!--Información del estudiante-->
+
+
+        <div class="row py-5">
+            <div class="col">
+                <h4 class="text-center">Información personal y de estadía</h4>
+            </div>
+        </div>
+
+
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nacionalidad">Nacionalidad</span></label>
+            <div class="col-md-8">
+                <input class="form-control" type="text" name="nacionalidad" size="30" value=''>
+            </div>
+        </div>
+        
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Telefono móvil</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="number" name="telefono" size="9" readonly="true" min="1000000000" value=''>
+            </div>
+        </div>
+
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Email personal</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="email" name="email_personal" size="30" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Nivel de Inglés</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="email" name="email_personal" size="30" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Segundo idioma</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="email" name="idioma_sec" size="30" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Universidad de Preferencia 1</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="email" name="idioma_sec" size="30" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Universidad de Preferencia 2</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="email" name="idioma_sec" size="30" readonly="true" value=''>
+            </div>
+        </div>
+        <div class="row py-1">
+            <label class="col-md-4 control-label" for="nombre">Universidad de Preferencia 3</label>
+            <div clasS="col-md-8">
+                <input class="form-control" type="email" name="idioma_sec" size="30" readonly="true" value=''>
+            </div>
+        </div>
+
+        <div class="row py-5">
+            <div class="col">
+                <h4 class="text-center">Información adicional</h4>
+            </div>
+        </div>
+
+        <% if @has_additional_questions == true %>
+
+
+
+            <div class="row py-1">
+                <label class="col-md-4 control-label">Pregunta</label>
+                <div clasS="col-md-8">
+                    <input class="form-control" type="text" value='Respuesta'>
+                </div>
+            </div>
+            <div class="row py-1">
+                <label class="col-md-4 control-label">Pregunta</label>
+                <div clasS="col-md-8">
+                    <input class="form-control" type="text" value='Respuesta'>
+                </div>
+            </div>
+            <div class="row py-1">
+                <label class="col-md-4 control-label">Pregunta</label>
+                <div clasS="col-md-8">
+                    <input class="form-control" type="text" value='Respuesta'>
+                </div>
+            </div>
+
+            <div class="row py-5">
+                <div class="col-12">
+                    <h4 class="text-center">Fin</h4>
+                </div>
+            </div>
+
+
+        <% else %>
+            <div class="row">
+                <div class="col">
+                    <span>No existen preguntas adicionales relacionadas a ésta convocatoria.</span>
+                </div>
+            </div>
+        <% end %>
+        
+    </div>
+
+    <% if @is_able_to_modify == true %>
+        <%= render "apply/verify/modal" %>   
+    <% end %>
+
+    <%= render "shared/footer" %>
+
+</body>

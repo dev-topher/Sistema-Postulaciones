@@ -1,0 +1,100 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <button type="button" class="btn btn-success btn-circle w-100" data-bs-toggle="modal" data-bs-target="#crearConvocatoriaModal"><i class="fa-solid fa-address-book"></i> Añadir nueva convocatoria</button>    
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="crearConvocatoriaModal" tabindex="-1" aria-labelledby="crearConvocatoriaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearConvocatoriaModalLabel">Crear Convocatoria</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <%= form_with url: convocatorias_crear_path, method: :post do |form| %>
+
+                <div class="modal-body">
+                    <h4 class="text-center">Parámetros</h4>
+                    <div class="d-grid gap-2">
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="nombre_convocatoria">Nombre Convocatoria</label>
+                            <div clasS="col-md-8">
+                                <%= form.text_field :name, class: "form-control", required: true %>
+                            </div>
+                        </div>
+                        <div class="row"> 
+                            <label class="col-md-4 control-label" for="tipo_convocatoria">Tipo de programa</label>
+                            <div class="col-md-8">
+                                <%= select_tag :program_id, options_from_collection_for_select(@programs, 'id', 'name'), class: 'form-select' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="f_inicio">Fecha de inicio</label>
+                            <div class="col-md-8">
+                               <%= form.date_field :f_inicio, min: "2021-01-01", class: "form-control", required: true %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="f_fin">Fecha de término</label>
+                            <div class="col-md-8">
+                                <%= form.date_field :f_fin, min: "2021-01-01", class: "form-control", required: true %>
+                            </div>
+                        </div>
+                        <div class="row"> 
+                            <label class="col-md-4 control-label">Estado de la convocatoria</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" readonly="true" value="Próximamente...">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="reprobado">Ramos reprobados máximos</label>
+                            <div clasS="col-md-8">
+                                <%= form.number_field :ramos_reprobados, class: "form-control", required: true %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="min_sct_creditos">Mínimo de créditos SCT</label>
+                            <div class="col-md-8">
+                                <%= form.number_field :min_creditos_sct, class: "form-control", required: true %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4 control-label" for="max_sct_creditos">Máximo de créditos SCT (ingrese el valor porcentual %)</label>
+                            <div clasS="col-md-8">
+                                <%= form.number_field :max_creditos_sct, class: "form-control", required: true %>
+                                <div class="invalid-feedback">
+                                    <span style="color:white">Valor máximo de 100 %.</span>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="row">
+                           <h4 class="text-center">Preguntas Adicionales</h4>
+                        </div>  
+
+                        <% if @has_questions_available == false %>
+                            <p class="text-center">No existen preguntas creadas.</p>
+                        <% else %>
+                            <div class="row row-cols-4 gy-4"> 
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name='pregunta[]' value="">
+                                    <label class="form-check-label"></label>
+                                </div>
+
+                            </div>
+                        <% end %>
+                        <br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="form_crear_boton"><i class="fa-solid fa-floppy-disk"></i> Crear</button>
+                </div>
+
+            <% end %>
+        </div>
+    </div>
+</div>
